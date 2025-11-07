@@ -1,0 +1,40 @@
+# Archivos de configuración sensibles
+config/db.php
+*.env
+.env
+
+# Archivos temporales de PHP
+*.log
+*.cache
+*.tmp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Archivos de backup
+*.bak
+*.backup
+*~
+
+# Archivos de test/temporales
+test/
+crear_noticias_ejemplo.php
+info.php
+
+# XAMPP
+htdocs/.htaccess
+xampp/
+
+# Archivos de sesión
+*.sess
+*.session
+

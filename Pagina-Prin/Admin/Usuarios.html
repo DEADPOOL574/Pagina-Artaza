@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gestión de usuarios del panel de administración de Respawn News.">
+    <title>Usuarios - Panel Admin</title>
+    <link rel="stylesheet" href="PaginaAdmin.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">Admin</h2>
+
+        <nav>
+            <a href="PaginaAdmin.html">📊 Dashboard</a>
+            <a href="Novedades.html">📰 Noticias</a>
+            <a href="CrearNoticia.html">➕ Crear noticia</a>
+            <a href="Usuarios.html" class="active">👤 Usuarios</a>
+            <a href="Configuracion.html">⚙️ Configuración</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <header class="topbar">
+            <h1>Gestión de Usuarios</h1>
+            <div class="user">Administrador 🔒</div>
+        </header>
+
+        <section class="tabla">
+            <h2>Usuarios registrados</h2>
+
+            <table>
+                <thead>
+                    <tr class="head">
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>DonPepe</td>
+                        <td>donpepe@gmail.com</td>
+                        <td>Admin</td>
+                        <td>
+                            <button class="editar">Editar</button>
+                            <button class="eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>02</td>
+                        <td>RespawnUser</td>
+                        <td>respawn@gmail.com</td>
+                        <td>Editor</td>
+                        <td>
+                            <button class="editar">Editar</button>
+                            <button class="eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</body>
+</html>

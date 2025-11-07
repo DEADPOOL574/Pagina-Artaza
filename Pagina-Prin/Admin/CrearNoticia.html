@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crear nueva noticia en el panel de administración de Respawn News.">
+    <title>Crear noticia</title>
+    <link rel="stylesheet" href="PaginaAdmin.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2 class="logo">Admin</h2>
+        <nav>
+            <a href="PaginaAdmin.html">📊 Dashboard</a>
+            <a href="Novedades.html">📰 Noticias</a>
+            <a href="CrearNoticia.html" class="active">➕ Crear noticia</a>
+            <a href="Usuarios.html">👤 Usuarios</a>
+            <a href="Configuracion.html">⚙️ Configuración</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <h1>Crear nueva noticia</h1>
+            <div class="user">Administrador 🔒</div>
+        </header>
+
+        <section class="formulario">
+
+            <label>Título de la noticia:</label>
+            <input type="text" class="input" placeholder="Título de la noticia">
+
+            <label>Imagen principal (URL):</label>
+            <input type="text" class="input" placeholder="URL de la imagen principal">
+
+            <label>Categoría:</label>
+            <select class="input" title="Categoría">
+                <option>Anime</option>
+                <option>Videojuegos</option>
+                <option>Novedades</option>
+            </select>
+
+            <label>Contenido de la noticia:</label>
+            <textarea class="textarea" placeholder="Contenido de la noticia"></textarea>
+
+            <button class="btn-crear">Publicar noticia</button>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

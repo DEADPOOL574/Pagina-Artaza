@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Configuración del sitio en el panel de administración de Respawn News.">
+    <title>Configuración</title>
+    <link rel="stylesheet" href="PaginaAdmin.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2 class="logo">Admin</h2>
+        <nav>
+            <a href="PaginaAdmin.html">📊 Dashboard</a>
+            <a href="Novedades.html">📰 Noticias</a>
+            <a href="CrearNoticia.html">➕ Crear noticia</a>
+            <a href="Usuarios.html">👤 Usuarios</a>
+            <a href="Configuracion.html" class="active">⚙️ Configuración</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <h1>Configuración del sitio</h1>
+            <div class="user">Administrador 🔒</div>
+        </header>
+
+        <section class="formulario">
+
+            <label>Nombre del sitio:</label>
+            <input type="text" class="input" value="Respawn News" placeholder="Nombre del sitio">
+
+            <label>Descripción corta:</label>
+            <input type="text" class="input" value="Noticias de anime y videojuegos" placeholder="Descripción corta">
+
+            <label>Color principal:</label>
+            <input type="color" class="input" value="#f39c12" placeholder="Color principal">
+
+            <label>Modo mantenimiento:</label>
+            <select class="input" title="Modo mantenimiento">
+                <option>Desactivado</option>
+                <option>Activado</option>
+            </select>
+
+            <button class="btn-crear">Guardar cambios</button>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

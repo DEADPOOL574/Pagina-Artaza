@@ -1,0 +1,87 @@
+/* HEADER */
+.header {
+    background-color: #f39c12;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.titulo {
+    font-size: 120px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.menu-icon {
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* CONTENEDOR */
+.contenedor {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* ICONOS SUPERIORES */
+.iconos {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+}
+
+.icono, .campana {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* TITULO NOTICIA */
+.subtitulo {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 45px;
+    margin-bottom: 25px;
+}
+
+/* IMAGEN PRINCIPAL */
+.img-top {
+    width: 85%;
+    max-width: 900px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* TEXTO */
+.texto {
+    width: 85%;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: left;
+}
+
+/* ITEMS DEL TOP */
+.item {
+    width: 85%;
+    margin: 40px auto 10px;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: left;
+}
+
+/* PIE DE PÁGINA */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    background: #1a1a1a;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}

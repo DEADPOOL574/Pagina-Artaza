@@ -1,0 +1,237 @@
+/* ----- CONFIGURACIÓN GENERAL ----- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f2f2f2;
+}
+
+/* ----- SIDEBAR ----- */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-sizing: border-box; /* evita que el padding aumente el ancho total */
+}
+
+.logo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav .active {
+    background-color: #f39c12;
+}
+
+/* ----- CONTENIDO PRINCIPAL ----- */
+.main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 25px;
+}
+
+/* ----- TOPBAR ----- */
+.topbar {
+    background-color: #f39c12;
+    padding: 24px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 16px #00000020;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.user {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ----- STATS CARDS ----- */
+.stats {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    box-shadow: 0px 3px 8px #00000030;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.numero {
+    font-size: 40px;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+/* ----- BOTÓN CREAR ----- */
+.crear {
+    margin-top: 25px;
+}
+
+.btn-crear {
+    background-color: #a8ce00;
+    padding: 12px 22px;
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: 900;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px #00000020;
+}
+
+.btn-crear:hover {
+    background-color: #8eb000;
+}
+
+/* ----- TABLA ----- */
+.tabla {
+    margin-top: 30px;
+}
+
+/* ----- HERO NEWS (estilo captura) ----- */
+.hero-news {
+    margin-top: 24px;
+}
+
+.hero-title {
+    background: linear-gradient(0deg, #f39c12 0%, #f39c12 100%);
+    color: #111;
+    border-radius: 10px 10px 0 0;
+    padding: 14px 24px;
+    box-shadow: 0 6px 14px #0000001e;
+}
+
+.hero-title h1 {
+    font-size: 68px;
+    margin: 10px 0 4px 0;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.subnav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background-color: #b7d337; /* franja verde como en la captura */
+    padding: 12px 24px;
+    border-radius: 0 0 10px 10px;
+}
+
+.subnav a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.subnav a:hover {
+    text-decoration: underline;
+}
+
+.tabla h2 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px #0000001f;
+}
+
+.head th {
+    background-color: #f39c12;
+    padding: 14px 16px;
+    font-size: 18px;
+    text-align: left;
+}
+
+td, th {
+    padding: 14px 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+tbody tr:hover {
+    background-color: #fff5e6; /* un toque de la paleta naranja */
+}
+
+/* Alinear y espaciar mejor botones en columna de acciones */
+td:last-child {
+    white-space: nowrap;
+}
+td:last-child .editar,
+td:last-child .eliminar {
+    margin-right: 8px;
+}
+
+.editar {
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 6px #0066ff33;
+}
+
+.eliminar {
+    background-color: #d10000;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 6px #d1000033;
+}
+
+.editar:hover {
+    background-color: #0050cc;
+}
+
+.eliminar:hover {
+    background-color: #a80000;
+}

@@ -1,0 +1,45 @@
+/* Reset mínimo */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f2f2f2; color: #111; }
+
+/* Hero estilo captura */
+.hero { background: #f39c12; padding: 10px 20px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.hero h1 { margin: 0; font-size: 120px; font-weight: 900; letter-spacing: 1px; text-align: center; font-family: 'Bebas Neue', sans-serif; line-height: 1; }
+.subnav { display: flex; gap: 40px; justify-content: center; align-items: center; background: #b7d337; padding: 12px 20px; margin-top: 12px; }
+.subnav a { color: #111; text-decoration: none; font-weight: 800; }
+.subnav a:hover { text-decoration: underline; }
+
+.container { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+
+/* Destacado */
+.destacado { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 6px 18px #0000001a; }
+.destacado-img { width: 100%; height: auto; border-radius: 8px; display: block; }
+.destacado-texto h2 { margin: 0 0 8px 0; font-size: 28px; }
+
+/* Listas */
+.listas { margin-top: 24px; background:#fff; padding:16px; border-radius:12px; box-shadow: 0 6px 18px #0000001a; }
+.listas h3 { margin: 6px 0 10px 0; }
+.listas ul, .listas ol, .listas dl { margin: 0 0 12px 20px; }
+
+/* Tabla simple */
+.tabla-simple { margin-top: 24px; background:#fff; padding:16px; border-radius:12px; box-shadow: 0 6px 18px #0000001a; }
+.tabla-simple table { width: 100%; border-collapse: collapse; background: #fff; }
+.tabla-simple thead th { text-align: left; background:#f39c12; padding: 12px 14px; }
+.tabla-simple td, .tabla-simple th { padding: 12px 14px; border-bottom: 1px solid #ddd; }
+.tabla-simple tbody tr:nth-child(even) { background: #fafafa; }
+
+/* Media (iframe YouTube) */
+.media { margin-top: 24px; background:#fff; padding:16px; border-radius:12px; box-shadow: 0 6px 18px #0000001a; }
+.ratio { position: relative; width: 100%; padding-top: 56.25%; }
+.ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* Pre */
+pre { background: #111; color: #eee; padding: 12px; border-radius: 8px; overflow: auto; }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .hero h1 { font-size: 48px; }
+  .destacado { grid-template-columns: 1fr; }
+}
+
+

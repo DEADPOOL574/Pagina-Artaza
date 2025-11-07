@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración de Respawn News: dashboard, noticias, usuarios y configuración.">
+    <title>Panel de Administración - Respawn News</title>
+    <link rel="stylesheet" href="PaginaAdmin.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">Admin</h2>
+
+        <nav>
+            <a href="PaginaAdmin.html" class="active">📊 Dashboard</a>
+            <a href="noticias/index.php">📰 Noticias</a>
+            <a href="noticias/crear.php">➕ Crear noticia</a>
+            <a href="usuarios/index.php">👤 Usuarios</a>
+            <a href="Configuracion.html">⚙️ Configuración</a>
+        </nav>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+
+        <!-- BARRA SUPERIOR -->
+        <header class="topbar">
+            <h1>Panel de Administración</h1>
+            <div class="user">
+                <span>Administrador</span> 🔒
+            </div>
+        </header>
+
+        <!-- ESTADÍSTICAS -->
+        <section class="stats">
+
+            <div class="card">
+                <h3>Noticias publicadas</h3>
+                <p class="numero">124</p>
+            </div>
+
+            <div class="card">
+                <h3>Usuarios registrados</h3>
+                <p class="numero">87</p>
+            </div>
+
+            <div class="card">
+                <h3>Visitas del mes</h3>
+                <p class="numero">14,209</p>
+            </div>
+
+        </section>
+
+        <!-- ACCIONES RÁPIDAS (ENLACES AL ABM) -->
+        <div class="crear" style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="noticias/crear.php" class="btn-crear">+ Crear nueva noticia</a>
+            <a href="noticias/index.php" class="btn-crear" style="background:#1976d2">Gestionar noticias</a>
+            <a href="usuarios/index.php" class="btn-crear" style="background:#6a1b9a">Gestionar usuarios</a>
+            <a href="/ArtazaFinal/InicioDeSesion/InicioSesion.php" class="btn-crear" style="background:#455a64">Iniciar sesión</a>
+            <a href="/ArtazaFinal/auth/logout.php" class="btn-crear" style="background:#b71c1c">Cerrar sesión</a>
+        </div>
+
+        <!-- TABLA DE NOTICIAS -->
+        <section class="tabla">
+            <h2>Últimas publicaciones</h2>
+
+            <table>
+                <thead>
+                    <tr class="head">
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Top 5 videojuegos legendarios</td>
+                        <td>02/11/2025</td>
+                        <td>
+                            <button class="editar">Editar</button>
+                            <button class="eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>002</td>
+                        <td>Novedades del anime 2025</td>
+                        <td>28/10/2025</td>
+                        <td>
+                            <button class="editar">Editar</button>
+                            <button class="eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>003</td>
+                        <td>El futuro del gaming en 2030</td>
+                        <td>15/10/2025</td>
+                        <td>
+                            <button class="editar">Editar</button>
+                            <button class="eliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</body>
+</html>
