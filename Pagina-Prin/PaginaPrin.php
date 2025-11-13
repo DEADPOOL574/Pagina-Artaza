@@ -26,8 +26,11 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
         </form>
       </div>
 
-      <div class="icons">
-        <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
+      <div class="header-right">
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="icons">
+          <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
+        </div>
       </div>
 
       <!-- Menú desplegable -->
@@ -49,6 +52,7 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
         <div class="dropdown-section">
           <h4>Información</h4>
           <a href="QuienesSomos.php">Quiénes somos</a>
+          <a href="PreguntasFrecuentes.php">Preguntas frecuentes</a>
         </div>
       </div>
     </div>

@@ -25,8 +25,11 @@ require_once __DIR__ . '/../config/db.php';
         </form>
       </div>
 
-      <div class="icons">
-        <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
+      <div class="header-right">
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="icons">
+          <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
+        </div>
       </div>
 
       <!-- Menú desplegable -->
@@ -48,6 +51,7 @@ require_once __DIR__ . '/../config/db.php';
         <div class="dropdown-section">
           <h4>Información</h4>
           <a href="QuienesSomos.php">Quiénes somos</a>
+          <a href="PreguntasFrecuentes.php">Preguntas frecuentes</a>
         </div>
       </div>
     </div>

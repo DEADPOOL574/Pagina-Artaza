@@ -59,6 +59,7 @@ $res = $mysqli->query("SELECT id, titulo, descripcion, categoria, imagen_url, du
       <div class="dropdown-section">
         <h4>Información</h4>
         <a href="../QuienesSomos.php">Quiénes somos</a>
+        <a href="../PreguntasFrecuentes.php">Preguntas frecuentes</a>
       </div>
     </div>
   </header>
