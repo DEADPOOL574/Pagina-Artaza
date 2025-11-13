@@ -42,4 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Permitir búsqueda con Enter en los campos de búsqueda
+  document.querySelectorAll('input[name="q"]').forEach(input => {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const form = this.closest('form');
+        if (form) {
+          form.submit();
+        }
+      }
+    });
+  });
 });

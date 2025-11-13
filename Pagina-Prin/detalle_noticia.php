@@ -99,8 +99,10 @@ $fecha = date('d/m/Y H:i', strtotime($noticia['creado_en']));
       <h1><a href="PaginaPrin.php" style="text-decoration:none; color:inherit;">Respawn news</a></h1>
 
       <div class="search-container">
-        <input type="text" placeholder="Buscar...">
-        <button>+</button>
+        <form method="get" action="buscar.php" style="display:flex; width:100%;">
+          <input type="text" name="q" placeholder="Buscar..." style="flex:1; border:none; outline:none; padding:8px 12px; background-color:transparent; font-size:14px;">
+          <button type="submit">+</button>
+        </form>
       </div>
 
       <div class="icons">
@@ -114,11 +116,6 @@ $fecha = date('d/m/Y H:i', strtotime($noticia['creado_en']));
           <a href="Perfil/perfil.php">Ver perfil</a>
           <a href="Perfil/cv.php">Ver/Editar CV</a>
           <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-        </div>
-        <div class="dropdown-section">
-          <h4>Actividad</h4>
-          <a href="Actividad/actividad.php">Ver actividad reciente</a>
-          <a href="Guardados/guardados.php">Publicaciones guardadas</a>
         </div>
         <div class="dropdown-section">
           <h4>Cursos</h4>

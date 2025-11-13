@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="top-header">
       <h1>Crear usuario</h1>
       <div class="top-actions">
-        <a class="btn btn-back" href="../PaginaAdmin.html">← Panel</a>
+        <a class="btn btn-back" href="../PaginaAdmin.php">← Panel</a>
         <a class="btn btn-secondary" href="index.php">Listado</a>
       </div>
     </div>

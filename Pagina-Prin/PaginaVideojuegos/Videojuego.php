@@ -21,11 +21,13 @@ $res = $stmt->get_result();
     <!-- HEADER con botón de menú -->
     <header>
         <div class="header-content">
-            <h1>Videojuegos</h1>
+            <h1>VIDEOJUEGOS</h1>
 
             <div class="search-container">
-                <input type="text" placeholder="Buscar...">
-                <button>+</button>
+                <form method="get" action="../buscar.php" style="display:flex; width:100%;">
+                    <input type="text" name="q" placeholder="Buscar..." style="flex:1; border:none; outline:none; padding:8px 12px; background-color:transparent; font-size:14px;">
+                    <button type="submit">+</button>
+                </form>
             </div>
 
             <div class="icons">
@@ -39,11 +41,6 @@ $res = $stmt->get_result();
                     <a href="../Perfil/perfil.php">Ver perfil</a>
                     <a href="../Perfil/cv.php">Ver/Editar CV</a>
                     <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-                </div>
-                <div class="dropdown-section">
-                    <h4>Actividad</h4>
-                    <a href="../Actividad/actividad.php">Ver actividad reciente</a>
-                    <a href="../Guardados/guardados.php">Publicaciones guardadas</a>
                 </div>
                 <div class="dropdown-section">
                     <h4>Cursos</h4>
@@ -70,39 +67,45 @@ $res = $stmt->get_result();
         </ul>
     </nav>
 
-    <!-- SECCIÓN "LO MÁS RECIENTE" -->
-    <section class="contenedor">
-        <h2 class="subtitulo">Lo más reciente</h2>
-
+    <!-- Contenido principal -->
+    <main>
         <?php 
         $count = 0;
         while($row = $res->fetch_assoc()): 
           $count++;
           $fecha = date('d/m/Y', strtotime($row['creado_en']));
-          $imagen = !empty($row['imagen_url']) ? $row['imagen_url'] : '../../Image/top5juegos.webp';
-          $contenido_corto = strlen($row['contenido']) > 200 ? substr($row['contenido'], 0, 200) . '...' : $row['contenido'];
+          $imagen = !empty($row['imagen_url']) ? $row['imagen_url'] : 'https://via.placeholder.com/320x200?text=Videojuegos';
+          $contenido_corto = strlen($row['contenido']) > 250 ? substr($row['contenido'], 0, 250) . '...' : $row['contenido'];
         ?>
         <a href="../detalle_noticia.php?id=<?php echo (int)$row['id']; ?>" style="text-decoration:none; color:inherit;">
-          <div class="noticia2" style="margin-bottom:30px;">
-            <img src="<?php echo htmlspecialchars($imagen); ?>" class="img-noticia" alt="<?php echo htmlspecialchars($row['titulo']); ?>">
-            <div class="texto-largo">
+          <section class="noticia">
+            <div class="noticia-img">
+              <img src="<?php echo htmlspecialchars($imagen); ?>" alt="<?php echo htmlspecialchars($row['titulo']); ?>">
+            </div>
+            <div class="noticia-texto">
+              <?php if ($count === 1): ?>
+                <h2>Lo más reciente</h2>
+              <?php endif; ?>
               <p class="fecha"><?php echo htmlspecialchars($fecha); ?></p>
-              <h2 class="titulo-noticia"><?php echo htmlspecialchars($row['titulo']); ?></h2>
-              <p class="texto">
+              <h3><?php echo htmlspecialchars($row['titulo']); ?></h3>
+              <p>
                 <?php echo nl2br(htmlspecialchars($contenido_corto)); ?>
               </p>
               <p style="color:#f39c12; font-weight:700; margin-top:10px;">Leer más →</p>
             </div>
-          </div>
+          </section>
         </a>
         <?php endwhile; ?>
         
         <?php if ($count === 0): ?>
-          <div class="noticia">
-            <p class="texto">No hay noticias de videojuegos publicadas aún. Las noticias aparecerán aquí cuando se creen desde el panel de administración.</p>
-          </div>
+          <section class="noticia">
+            <div class="noticia-texto">
+              <h2>Lo más reciente</h2>
+              <p>No hay noticias de videojuegos publicadas aún. Las noticias aparecerán aquí cuando se creen desde el panel de administración.</p>
+            </div>
+          </section>
         <?php endif; ?>
-    </section>
+    </main>
 
     <script src="../Funcion.js"></script>
 </body>

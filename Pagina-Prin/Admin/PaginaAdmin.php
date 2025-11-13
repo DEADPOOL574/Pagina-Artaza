@@ -1,3 +1,16 @@
+<?php 
+require_once __DIR__ . '/../../config/admin_guard.php';
+require_once __DIR__ . '/../../config/db.php';
+
+// Obtener estadísticas
+$noticias_count = $mysqli->query("SELECT COUNT(*) as total FROM noticias")->fetch_assoc()['total'];
+$usuarios_count = $mysqli->query("SELECT COUNT(*) as total FROM usuarios")->fetch_assoc()['total'];
+// Visitas del mes (simulado - podrías crear una tabla de visitas si quieres)
+$visitas_mes = 14209; // Por ahora estático, puedes implementar tracking después
+
+// Obtener últimas noticias
+$ultimas_noticias = $mysqli->query("SELECT id, titulo, creado_en FROM noticias ORDER BY creado_en DESC LIMIT 10");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +34,6 @@
             <a href="usuarios/index.php">👤 Usuarios</a>
             <a href="cursos/index.php">🎓 Cursos</a>
             <a href="cursos/crear.php">➕ Crear curso</a>
-            <a href="Configuracion.html">⚙️ Configuración</a>
         </nav>
     </aside>
 
@@ -41,17 +53,17 @@
 
             <div class="card">
                 <h3>Noticias publicadas</h3>
-                <p class="numero">124</p>
+                <p class="numero"><?php echo number_format($noticias_count); ?></p>
             </div>
 
             <div class="card">
                 <h3>Usuarios registrados</h3>
-                <p class="numero">87</p>
+                <p class="numero"><?php echo number_format($usuarios_count); ?></p>
             </div>
 
             <div class="card">
                 <h3>Visitas del mes</h3>
-                <p class="numero">14,209</p>
+                <p class="numero"><?php echo number_format($visitas_mes); ?></p>
             </div>
 
         </section>
@@ -63,8 +75,7 @@
             <a href="usuarios/index.php" class="btn-crear" style="background:#6a1b9a">Gestionar usuarios</a>
             <a href="cursos/index.php" class="btn-crear" style="background:#9b59b6">Gestionar cursos</a>
             <a href="cursos/crear.php" class="btn-crear" style="background:#8e44ad">+ Crear curso</a>
-            <a href="/ArtazaFinal/InicioDeSesion/InicioSesion.php" class="btn-crear" style="background:#455a64">Iniciar sesión</a>
-            <a href="/ArtazaFinal/auth/logout.php" class="btn-crear" style="background:#b71c1c">Cerrar sesión</a>
+            <a href="logout.php" class="btn-crear" style="background:#b71c1c">Cerrar sesión</a>
         </div>
 
         <!-- TABLA DE NOTICIAS -->
@@ -81,35 +92,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Top 5 videojuegos legendarios</td>
-                        <td>02/11/2025</td>
-                        <td>
-                            <button class="editar">Editar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>002</td>
-                        <td>Novedades del anime 2025</td>
-                        <td>28/10/2025</td>
-                        <td>
-                            <button class="editar">Editar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>003</td>
-                        <td>El futuro del gaming en 2030</td>
-                        <td>15/10/2025</td>
-                        <td>
-                            <button class="editar">Editar</button>
-                            <button class="eliminar">Eliminar</button>
-                        </td>
-                    </tr>
+                    <?php if ($ultimas_noticias->num_rows === 0): ?>
+                        <tr>
+                            <td colspan="4" style="text-align:center; padding:40px; color:#999;">
+                                No hay noticias publicadas aún. <a href="noticias/crear.php" style="color:#f39c12;">Crear primera noticia</a>
+                            </td>
+                        </tr>
+                    <?php else: ?>
+                        <?php while($noticia = $ultimas_noticias->fetch_assoc()): 
+                            $fecha = date('d/m/Y', strtotime($noticia['creado_en']));
+                        ?>
+                            <tr>
+                                <td><?php echo str_pad($noticia['id'], 3, '0', STR_PAD_LEFT); ?></td>
+                                <td><?php echo htmlspecialchars($noticia['titulo']); ?></td>
+                                <td><?php echo htmlspecialchars($fecha); ?></td>
+                                <td>
+                                    <button class="editar" onclick="window.location.href='noticias/editar.php?id=<?php echo (int)$noticia['id']; ?>'">Editar</button>
+                                    <button class="eliminar" onclick="if(confirm('¿Estás seguro de eliminar esta noticia?')) window.location.href='noticias/eliminar.php?id=<?php echo (int)$noticia['id']; ?>'">Eliminar</button>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </section>
@@ -118,3 +121,4 @@
 
 </body>
 </html>
+

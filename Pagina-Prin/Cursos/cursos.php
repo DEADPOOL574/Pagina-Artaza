@@ -49,11 +49,6 @@ $res = $mysqli->query("SELECT id, titulo, descripcion, categoria, imagen_url, du
         <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
       </div>
       <div class="dropdown-section">
-        <h4>Actividad</h4>
-        <a href="../Actividad/actividad.php">Ver actividad reciente</a>
-        <a href="../Guardados/guardados.php">Publicaciones guardadas</a>
-      </div>
-      <div class="dropdown-section">
         <h4>Cursos</h4>
         <a href="cursos.php">Ver cursos</a>
       </div>

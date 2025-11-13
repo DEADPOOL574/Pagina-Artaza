@@ -37,7 +37,7 @@ $res = $mysqli->query("SELECT id, titulo, categoria, nivel, duracion, creado_en 
   <div class="container">
     <div class="actionsbar">
       <div style="display:flex; gap:12px; align-items:center;">
-        <a class="btn btn-back" href="../PaginaAdmin.html">← Volver al panel</a>
+        <a class="btn btn-back" href="../PaginaAdmin.php">← Volver al panel</a>
         <div>Listado de cursos</div>
       </div>
       <a class="btn btn-primary" href="crear.php">+ Crear curso</a>

@@ -81,7 +81,7 @@ foreach ($statements as $statement) {
         <?php endif; ?>
         
         <p>
-            <a href="/ArtazaFinal/Pagina-Prin/Admin/PaginaAdmin.html">← Volver al panel de administración</a>
+            <a href="/ArtazaFinal/Pagina-Prin/Admin/PaginaAdmin.php">← Volver al panel de administración</a>
         </p>
     </div>
 </body>

@@ -32,7 +32,7 @@ $res = $mysqli->query("SELECT id, titulo, categoria, creado_en FROM noticias ORD
   <div class="container">
     <div class="actionsbar">
       <div style="display:flex; gap:12px; align-items:center;">
-        <a class="btn btn-back" href="../PaginaAdmin.html">← Volver al panel</a>
+        <a class="btn btn-back" href="../PaginaAdmin.php">← Volver al panel</a>
         <div>Listado de noticias</div>
       </div>
       <div style="display:flex; gap:12px; align-items:center;">

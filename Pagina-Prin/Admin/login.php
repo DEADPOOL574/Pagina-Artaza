@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['is_admin'] = true;
       $_SESSION['admin_id'] = (int)$user['id'];
       $_SESSION['admin_name'] = $user['nombre'];
-      header('Location: /ArtazaFinal/Pagina-Prin/Admin/PaginaAdmin.html');
+      header('Location: /ArtazaFinal/Pagina-Prin/Admin/PaginaAdmin.php');
       exit;
     }
   }

@@ -20,8 +20,10 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
       <h1>Respawn news</h1>
 
       <div class="search-container">
-        <input type="text" placeholder="Buscar...">
-        <button>+</button>
+        <form method="get" action="buscar.php" style="display:flex; width:100%;">
+          <input type="text" name="q" placeholder="Buscar..." style="flex:1; border:none; outline:none; padding:8px 12px; background-color:transparent; font-size:14px;">
+          <button type="submit">+</button>
+        </form>
       </div>
 
       <div class="icons">
@@ -35,11 +37,6 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
           <a href="Perfil/perfil.php">Ver perfil</a>
           <a href="Perfil/cv.php">Ver/Editar CV</a>
           <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-        </div>
-        <div class="dropdown-section">
-          <h4>Actividad</h4>
-          <a href="Actividad/actividad.php">Ver actividad reciente</a>
-          <a href="Guardados/guardados.php">Publicaciones guardadas</a>
         </div>
         <div class="dropdown-section">
           <h4>Cursos</h4>
@@ -60,9 +57,9 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
   <!-- Menú de navegación -->
   <nav>
     <ul>
-      <li><a href="../Pagina-Prin/PaginaAnime/Anime.php">Anime</a></li>
-      <li><a href="../Pagina-Prin/PaginaVideojuegos/Videojuego.php">Videojuegos</a></li>
-      <li><a href="../Pagina-Prin/Novedades/Novedades.php">Novedades</a></li>
+      <li><a href="PaginaAnime/Anime.php">Anime</a></li>
+      <li><a href="PaginaVideojuegos/Videojuego.php">Videojuegos</a></li>
+      <li><a href="Novedades/Novedades.php">Novedades</a></li>
     </ul>
   </nav>
 

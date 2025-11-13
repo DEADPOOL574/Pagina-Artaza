@@ -31,7 +31,7 @@ $res = $mysqli->query("SELECT id, nombre, email, creado_en FROM usuarios ORDER B
   <div class="container">
     <div class="actionsbar">
       <div style="display:flex; gap:12px; align-items:center;">
-        <a class="btn btn-back" href="../PaginaAdmin.html">← Volver al panel</a>
+        <a class="btn btn-back" href="../PaginaAdmin.php">← Volver al panel</a>
         <div>Listado de usuarios</div>
       </div>
       <a class="btn btn-primary" href="crear.php">+ Crear usuario</a>
