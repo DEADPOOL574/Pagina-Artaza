@@ -1,14 +1,6 @@
-# Archivos de configuración sensibles
-config/db.php
-*.env
-.env
+# Ignorar solo cosas del sistema y temporales
 
-# Archivos temporales de PHP
-*.log
-*.cache
-*.tmp
-
-# Archivos del sistema operativo
+# Sistema operativo
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -16,25 +8,14 @@ desktop.ini
 # IDEs
 .idea/
 .vscode/
-*.swp
 *.swo
-*~
+*.swp
 
-# Archivos de backup
-*.bak
-*.backup
-*~
-
-# Archivos de test/temporales
-test/
-crear_noticias_ejemplo.php
-info.php
-
-# XAMPP
-htdocs/.htaccess
-xampp/
+# Archivos temporales de PHP
+*.log
+*.cache
+*.tmp
 
 # Archivos de sesión
-*.sess
-*.session
-
+.sess
+.session

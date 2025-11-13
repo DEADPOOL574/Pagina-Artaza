@@ -24,10 +24,11 @@ $res = $stmt->get_result();
     <header class="hero" style="position:relative;">
         <h1 style="font-family: 'Bebas Neue', sans-serif; text-align:center;">Novedades</h1>
         <button class="menu-icon" id="menu-btn" aria-label="Abrir menú" style="position:absolute; right:16px; top:16px;">☰</button>
-        <div class="dropdown" id="dropdown-menu">
+        <div class="dropdown" id="dropdown-menu" hidden>
             <div class="dropdown-section">
                 <h4>Usuario</h4>
                 <a href="../Perfil/perfil.php">Ver perfil</a>
+                <a href="../Perfil/cv.php">Ver/Editar CV</a>
                 <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
                 <a href="/ArtazaFinal/auth/eliminar_cuenta.php">Eliminar cuenta</a>
             </div>
@@ -39,6 +40,10 @@ $res = $stmt->get_result();
             <div class="dropdown-section">
                 <h4>Cursos</h4>
                 <a href="../Cursos/cursos.php">Ver cursos</a>
+            </div>
+            <div class="dropdown-section">
+                <h4>Comunidad</h4>
+                <a href="../Blog/Blog.php">Blog</a>
             </div>
         </div>
         <nav class="subnav" aria-label="Navegación secundaria">

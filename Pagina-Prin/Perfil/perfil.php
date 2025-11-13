@@ -183,6 +183,17 @@ $user = $stmt->get_result()->fetch_assoc();
       </form>
     </section>
     
+    <section class="cv-section" style="margin-top:30px;">
+      <div class="section-header">
+        <span class="icon">📄</span>
+        <h2>Mi CV</h2>
+      </div>
+      <div style="text-align:center; padding:20px;">
+        <p style="color:#666; margin-bottom:20px;">Completa y gestiona tu CV profesional</p>
+        <a href="cv.php" class="btn btn-primary" style="display:inline-block;"><span>📄 Ver/Editar CV</span></a>
+      </div>
+    </section>
+    
     <section class="actions-section">
       <div class="section-header">
         <span class="icon">⚙️</span>

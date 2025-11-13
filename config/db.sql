@@ -1,6 +1,6 @@
 -- Crear base y tablas básicas
-CREATE DATABASE IF NOT EXISTS artaza_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE artaza_db;
+CREATE DATABASE IF NOT EXISTS respawnnews CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE respawnnews;
 
 -- Usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
