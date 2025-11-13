@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .hint{font-size:12px; color:#666}
     .top-header{display:flex; justify-content:space-between; align-items:center; width:100%}
     .top-actions{display:flex; gap:8px; align-items:center}
+    #imagen-preview{margin-top:12px}
   </style>
 </head>
 <body>
@@ -65,8 +66,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </select>
     </label>
     <label>URL de imagen (opcional)
-      <input type="text" name="imagen_url">
-      <span class="hint">Puedes pegar una URL https:// o dejar vacío.</span>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <input type="text" name="imagen_url" id="imagen_url" style="flex:1;">
+        <button type="button" class="btn btn-secondary" onclick="abrirGaleria()" style="white-space:nowrap;">📷 Ver Galería</button>
+      </div>
+      <span class="hint">Puedes pegar una URL https://, seleccionar de la galería, o dejar vacío.</span>
+      <div id="imagen-preview" style="margin-top:12px; display:none;">
+        <img id="preview-img" src="" alt="Vista previa" style="max-width:100%; max-height:200px; border-radius:8px; border:2px solid #ddd;">
+      </div>
     </label>
     <div class="actions">
       <button type="submit" class="btn btn-primary">Guardar</button>
@@ -74,6 +81,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </form>
   </div>
+
+  <script>
+    function abrirGaleria() {
+      window.open('galeria.php', 'galeria', 'width=1200,height=800,scrollbars=yes,resizable=yes');
+    }
+
+    // Mostrar vista previa cuando se ingresa una URL
+    document.getElementById('imagen_url').addEventListener('input', function() {
+      const url = this.value.trim();
+      const preview = document.getElementById('imagen-preview');
+      const img = document.getElementById('preview-img');
+      
+      if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+        img.src = url;
+        img.onload = function() {
+          preview.style.display = 'block';
+        };
+        img.onerror = function() {
+          preview.style.display = 'none';
+        };
+      } else {
+        preview.style.display = 'none';
+      }
+    });
+
+    // Escuchar mensajes de la ventana de galería
+    window.addEventListener('message', function(event) {
+      if (event.data && event.data.type === 'imagen_seleccionada' && event.data.url) {
+        document.getElementById('imagen_url').value = event.data.url;
+        document.getElementById('imagen_url').dispatchEvent(new Event('input'));
+      }
+    });
+  </script>
 </body>
 </html>
 

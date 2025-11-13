@@ -46,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .btn:hover{opacity:.9; transform:translateY(-1px); box-shadow:0 4px 8px rgba(0,0,0,.2)}
     .top-header{display:flex; justify-content:space-between; align-items:center; width:100%}
     .top-actions{display:flex; gap:8px; align-items:center}
+    .hint{font-size:12px; color:#666}
+    #imagen-preview{margin-top:12px}
   </style>
 </head>
 <body>
@@ -69,13 +71,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <option value="videojuegos" <?= $noticia['categoria']==='videojuegos'?'selected':'' ?>>Videojuegos</option>
       </select>
     </label>
-    <label>URL de imagen<input type="text" name="imagen_url" value="<?= htmlspecialchars($noticia['imagen_url'] ?? '') ?>"></label>
+    <label>URL de imagen
+      <div style="display:flex; gap:8px; align-items:center;">
+        <input type="text" name="imagen_url" id="imagen_url" value="<?= htmlspecialchars($noticia['imagen_url'] ?? '') ?>" style="flex:1;">
+        <button type="button" class="btn btn-secondary" onclick="abrirGaleria()" style="white-space:nowrap;">📷 Ver Galería</button>
+      </div>
+      <span class="hint" style="font-size:12px; color:#666; display:block; margin-top:4px;">Puedes pegar una URL https://, seleccionar de la galería, o dejar vacío.</span>
+      <div id="imagen-preview" style="margin-top:12px; <?= !empty($noticia['imagen_url']) ? 'display:block;' : 'display:none;' ?>">
+        <img id="preview-img" src="<?= htmlspecialchars($noticia['imagen_url'] ?? '') ?>" alt="Vista previa" style="max-width:100%; max-height:200px; border-radius:8px; border:2px solid #ddd;">
+      </div>
+    </label>
     <div class="actions">
       <button type="submit" class="btn btn-primary">Guardar</button>
       <a class="btn btn-secondary" href="index.php">Cancelar</a>
     </div>
   </form>
   </div>
+
+  <script>
+    function abrirGaleria() {
+      window.open('galeria.php', 'galeria', 'width=1200,height=800,scrollbars=yes,resizable=yes');
+    }
+
+    // Mostrar vista previa cuando se ingresa una URL
+    document.getElementById('imagen_url').addEventListener('input', function() {
+      const url = this.value.trim();
+      const preview = document.getElementById('imagen-preview');
+      const img = document.getElementById('preview-img');
+      
+      if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+        img.src = url;
+        img.onload = function() {
+          preview.style.display = 'block';
+        };
+        img.onerror = function() {
+          preview.style.display = 'none';
+        };
+      } else {
+        preview.style.display = 'none';
+      }
+    });
+
+    // Escuchar mensajes de la ventana de galería
+    window.addEventListener('message', function(event) {
+      if (event.data && event.data.type === 'imagen_seleccionada' && event.data.url) {
+        document.getElementById('imagen_url').value = event.data.url;
+        document.getElementById('imagen_url').dispatchEvent(new Event('input'));
+      }
+    });
+  </script>
 </body>
 </html>
 

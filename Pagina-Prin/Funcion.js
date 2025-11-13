@@ -21,4 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Evitar cierre al clicar dentro del menú
   dropdownMenu.addEventListener('click', (e) => e.stopPropagation());
+
+  // Scroll suave para enlaces de anclaje
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Cerrar el menú después de hacer clic
+          if (dropdownMenu) {
+            dropdownMenu.style.display = 'none';
+          }
+        }
+      }
+    });
+  });
 });

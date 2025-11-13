@@ -18,18 +18,25 @@ $res = $stmt->get_result();
 <body>
   <!-- Encabezado -->
   <header>
-    <div class="header-top">
+    <div class="header-content">
       <h1>ANIME</h1>
+
+      <div class="search-container">
+        <input type="text" placeholder="Buscar...">
+        <button>+</button>
+      </div>
+
       <div class="icons">
         <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
       </div>
+
+      <!-- Menú desplegable -->
       <div class="dropdown" id="dropdown-menu" hidden>
         <div class="dropdown-section">
           <h4>Usuario</h4>
           <a href="../Perfil/perfil.php">Ver perfil</a>
           <a href="../Perfil/cv.php">Ver/Editar CV</a>
           <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-          <a href="/ArtazaFinal/auth/eliminar_cuenta.php">Eliminar cuenta</a>
         </div>
         <div class="dropdown-section">
           <h4>Actividad</h4>
@@ -44,17 +51,22 @@ $res = $stmt->get_result();
           <h4>Comunidad</h4>
           <a href="../Blog/Blog.php">Blog</a>
         </div>
+        <div class="dropdown-section">
+          <h4>Información</h4>
+          <a href="../QuienesSomos.php">Quiénes somos</a>
+        </div>
       </div>
     </div>
-
-    <nav>
-      <ul>
-        <li><a href="../PaginaPrin.php">Inicio</a></li>
-        <li><a href="../PaginaVideojuegos/Videojuego.php">Videojuegos</a></li>
-        <li><a href="../Novedades/Novedades.php">Novedades</a></li>
-      </ul>
-    </nav>
   </header>
+
+  <!-- Menú de navegación -->
+  <nav>
+    <ul>
+      <li><a href="../PaginaPrin.php">Inicio</a></li>
+      <li><a href="../PaginaVideojuegos/Videojuego.php">Videojuegos</a></li>
+      <li><a href="../Novedades/Novedades.php">Novedades</a></li>
+    </ul>
+  </nav>
 
   <!-- Contenido principal -->
   <main>

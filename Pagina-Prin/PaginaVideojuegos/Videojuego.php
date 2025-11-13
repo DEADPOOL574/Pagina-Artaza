@@ -19,40 +19,55 @@ $res = $stmt->get_result();
 <body>
 
     <!-- HEADER con botón de menú -->
-    <header class="header">
-        <h1 class="titulo">Videojuegos</h1>
-        <div class="icons">
-            <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
-        </div>
-        <div class="dropdown" id="dropdown-menu" hidden>
-            <div class="dropdown-section">
-                <h4>Usuario</h4>
-                <a href="../Perfil/perfil.php">Ver perfil</a>
-                <a href="../Perfil/cv.php">Ver/Editar CV</a>
-                <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-                <a href="/ArtazaFinal/auth/eliminar_cuenta.php">Eliminar cuenta</a>
+    <header>
+        <div class="header-content">
+            <h1>Videojuegos</h1>
+
+            <div class="search-container">
+                <input type="text" placeholder="Buscar...">
+                <button>+</button>
             </div>
-            <div class="dropdown-section">
-                <h4>Actividad</h4>
-                <a href="../Actividad/actividad.php">Ver actividad reciente</a>
-                <a href="../Guardados/guardados.php">Publicaciones guardadas</a>
+
+            <div class="icons">
+                <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
             </div>
-            <div class="dropdown-section">
-                <h4>Cursos</h4>
-                <a href="../Cursos/cursos.php">Ver cursos</a>
-            </div>
-            <div class="dropdown-section">
-                <h4>Comunidad</h4>
-                <a href="../Blog/Blog.php">Blog</a>
+
+            <!-- Menú desplegable -->
+            <div class="dropdown" id="dropdown-menu" hidden>
+                <div class="dropdown-section">
+                    <h4>Usuario</h4>
+                    <a href="../Perfil/perfil.php">Ver perfil</a>
+                    <a href="../Perfil/cv.php">Ver/Editar CV</a>
+                    <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Actividad</h4>
+                    <a href="../Actividad/actividad.php">Ver actividad reciente</a>
+                    <a href="../Guardados/guardados.php">Publicaciones guardadas</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Cursos</h4>
+                    <a href="../Cursos/cursos.php">Ver cursos</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Comunidad</h4>
+                    <a href="../Blog/Blog.php">Blog</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Información</h4>
+                    <a href="../QuienesSomos.php">Quiénes somos</a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="nav">
-        <a href="../PaginaPrin.php">Inicio</a>
-        <a href="../PaginaAnime/Anime.php">Anime</a>
-        <a href="../Novedades/Novedades.php">Novedades</a>
+    <nav>
+        <ul>
+            <li><a href="../PaginaPrin.php">Inicio</a></li>
+            <li><a href="../PaginaAnime/Anime.php">Anime</a></li>
+            <li><a href="../Novedades/Novedades.php">Novedades</a></li>
+        </ul>
     </nav>
 
     <!-- SECCIÓN "LO MÁS RECIENTE" -->

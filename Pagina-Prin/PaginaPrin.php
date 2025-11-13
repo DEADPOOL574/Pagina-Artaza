@@ -35,7 +35,6 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
           <a href="Perfil/perfil.php">Ver perfil</a>
           <a href="Perfil/cv.php">Ver/Editar CV</a>
           <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-          <a href="/ArtazaFinal/auth/eliminar_cuenta.php">Eliminar cuenta</a>
         </div>
         <div class="dropdown-section">
           <h4>Actividad</h4>
@@ -49,6 +48,10 @@ $res = $mysqli->query("SELECT id, titulo, contenido, categoria, imagen_url, crea
         <div class="dropdown-section">
           <h4>Comunidad</h4>
           <a href="Blog/Blog.php">Blog</a>
+        </div>
+        <div class="dropdown-section">
+          <h4>Información</h4>
+          <a href="QuienesSomos.php">Quiénes somos</a>
         </div>
       </div>
     </div>

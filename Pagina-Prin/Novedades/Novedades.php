@@ -21,37 +21,57 @@ $res = $stmt->get_result();
 <body>
 
     <!-- Encabezado principal estilo captura -->
-    <header class="hero" style="position:relative;">
-        <h1 style="font-family: 'Bebas Neue', sans-serif; text-align:center;">Novedades</h1>
-        <button class="menu-icon" id="menu-btn" aria-label="Abrir menú" style="position:absolute; right:16px; top:16px;">☰</button>
-        <div class="dropdown" id="dropdown-menu" hidden>
-            <div class="dropdown-section">
-                <h4>Usuario</h4>
-                <a href="../Perfil/perfil.php">Ver perfil</a>
-                <a href="../Perfil/cv.php">Ver/Editar CV</a>
-                <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
-                <a href="/ArtazaFinal/auth/eliminar_cuenta.php">Eliminar cuenta</a>
+    <header>
+        <div class="header-content">
+            <h1>Novedades</h1>
+
+            <div class="search-container">
+                <input type="text" placeholder="Buscar...">
+                <button>+</button>
             </div>
-            <div class="dropdown-section">
-                <h4>Actividad</h4>
-                <a href="../Actividad/actividad.php">Ver actividad reciente</a>
-                <a href="../Guardados/guardados.php">Publicaciones guardadas</a>
+
+            <div class="icons">
+                <button class="menu-icon" id="menu-btn" aria-label="Abrir menú">☰</button>
             </div>
-            <div class="dropdown-section">
-                <h4>Cursos</h4>
-                <a href="../Cursos/cursos.php">Ver cursos</a>
-            </div>
-            <div class="dropdown-section">
-                <h4>Comunidad</h4>
-                <a href="../Blog/Blog.php">Blog</a>
+
+            <!-- Menú desplegable -->
+            <div class="dropdown" id="dropdown-menu" hidden>
+                <div class="dropdown-section">
+                    <h4>Usuario</h4>
+                    <a href="../Perfil/perfil.php">Ver perfil</a>
+                    <a href="../Perfil/cv.php">Ver/Editar CV</a>
+                    <a href="/ArtazaFinal/auth/logout.php">Cerrar sesión</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Actividad</h4>
+                    <a href="../Actividad/actividad.php">Ver actividad reciente</a>
+                    <a href="../Guardados/guardados.php">Publicaciones guardadas</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Cursos</h4>
+                    <a href="../Cursos/cursos.php">Ver cursos</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Comunidad</h4>
+                    <a href="../Blog/Blog.php">Blog</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Información</h4>
+                    <a href="../QuienesSomos.php">Quiénes somos</a>
+                </div>
             </div>
         </div>
-        <nav class="subnav" aria-label="Navegación secundaria">
-            <a href="../PaginaPrin.php">Inicio</a>
-            <a href="../PaginaAnime/Anime.php">Anime</a>
-            <a href="../PaginaVideojuegos/Videojuego.php">Videojuegos</a>
-        </nav>
     </header>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="../PaginaPrin.php">Inicio</a></li>
+            <li><a href="../PaginaAnime/Anime.php">Anime</a></li>
+            <li><a href="../PaginaVideojuegos/Videojuego.php">Videojuegos</a></li>
+            <li><a href="../Novedades/Novedades.php">Novedades</a></li>
+        </ul>
+    </nav>
 
     <main class="container" id="inicio">
 

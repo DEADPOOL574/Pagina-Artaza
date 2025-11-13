@@ -35,7 +35,10 @@ $res = $mysqli->query("SELECT id, titulo, categoria, creado_en FROM noticias ORD
         <a class="btn btn-back" href="../PaginaAdmin.html">← Volver al panel</a>
         <div>Listado de noticias</div>
       </div>
-      <a class="btn btn-primary" href="crear.php">+ Crear noticia</a>
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a class="btn btn-secondary" href="galeria.php" style="background:linear-gradient(135deg,#9c27b0,#7b1fa2); color:#fff;">📷 Galería</a>
+        <a class="btn btn-primary" href="crear.php">+ Crear noticia</a>
+      </div>
     </div>
   <table class="table">
     <thead>
