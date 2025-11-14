@@ -67,9 +67,28 @@ $res = $mysqli->query("
             </div>
         </div>
         <p class="subtitle">Observa todo lo que publica y opina la gente</p>
+        <?php if (!empty($_SESSION['is_admin'])): ?>
+            <p style="text-align:center; padding:5px; background:#27ae60; color:#fff; font-size:12px; margin:0;">
+                ✓ Modo Administrador Activo - Puedes eliminar publicaciones
+            </p>
+        <?php endif; ?>
     </header>
 
     <main class="container">
+        <?php if (isset($_GET['debug']) && $_GET['debug'] === 'admin'): ?>
+            <div style="background:#fff3cd; padding:15px; border-radius:8px; margin-bottom:20px; border:2px solid #ffc107;">
+                <strong>Debug Admin:</strong><br>
+                is_admin en sesión: <?php var_dump($_SESSION['is_admin'] ?? 'NO DEFINIDO'); ?><br>
+                Verificación: <?php $es_admin = !empty($_SESSION['is_admin']) && $_SESSION['is_admin'] === true; echo $es_admin ? 'SÍ ES ADMIN' : 'NO ES ADMIN'; ?><br>
+                <a href="verificar_admin.php" style="color:#856404;">Ver detalles completos →</a>
+            </div>
+        <?php endif; ?>
+        <?php if (!empty($_GET['success'])): ?>
+            <div class="alert alert-success"><?php echo htmlspecialchars($_GET['success']); ?></div>
+        <?php endif; ?>
+        <?php if (!empty($_GET['error'])): ?>
+            <div class="alert alert-error"><?php echo htmlspecialchars($_GET['error']); ?></div>
+        <?php endif; ?>
         <?php if ($res->num_rows === 0): ?>
             <div class="empty-state">
                 <h2>No hay publicaciones aún</h2>
@@ -107,6 +126,17 @@ $res = $mysqli->query("
                                 💬 <span><?php echo (int)$post['comentarios_count']; ?></span>
                             </a>
                             <button class="action" title="Compartir">↗</button>
+                            <?php 
+                            // Verificar si el usuario es admin
+                            $es_admin = !empty($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
+                            if ($es_admin): ?>
+                                <a href="eliminar_post.php?id=<?php echo (int)$post['id']; ?>" 
+                                   class="action action-delete" 
+                                   title="Eliminar publicación (Admin)"
+                                   onclick="return confirm('¿Estás seguro de que deseas eliminar esta publicación? Esta acción no se puede deshacer.');">
+                                    🗑️ Eliminar
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </article>

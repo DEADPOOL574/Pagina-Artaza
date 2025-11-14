@@ -2,9 +2,22 @@
 require_once __DIR__ . '/../../config/admin_guard.php';
 require_once __DIR__ . '/../../config/db.php';
 
+// Asegurar que la tabla del blog existe
+$mysqli->query("CREATE TABLE IF NOT EXISTS blog_posts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  titulo VARCHAR(200) NOT NULL,
+  contenido TEXT NOT NULL,
+  imagen_url VARCHAR(400) NULL,
+  creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  actualizado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+
 // Obtener estadísticas
 $noticias_count = $mysqli->query("SELECT COUNT(*) as total FROM noticias")->fetch_assoc()['total'];
 $usuarios_count = $mysqli->query("SELECT COUNT(*) as total FROM usuarios")->fetch_assoc()['total'];
+$blog_count = $mysqli->query("SELECT COUNT(*) as total FROM blog_posts")->fetch_assoc()['total'];
 // Visitas del mes (simulado - podrías crear una tabla de visitas si quieres)
 $visitas_mes = 14209; // Por ahora estático, puedes implementar tracking después
 
@@ -34,6 +47,7 @@ $ultimas_noticias = $mysqli->query("SELECT id, titulo, creado_en FROM noticias O
             <a href="usuarios/index.php">👤 Usuarios</a>
             <a href="cursos/index.php">🎓 Cursos</a>
             <a href="cursos/crear.php">➕ Crear curso</a>
+            <a href="blog/index.php">📝 Blog</a>
         </nav>
     </aside>
 
@@ -66,6 +80,11 @@ $ultimas_noticias = $mysqli->query("SELECT id, titulo, creado_en FROM noticias O
                 <p class="numero"><?php echo number_format($visitas_mes); ?></p>
             </div>
 
+            <div class="card">
+                <h3>Publicaciones del blog</h3>
+                <p class="numero"><?php echo number_format($blog_count); ?></p>
+            </div>
+
         </section>
 
         <!-- ACCIONES RÁPIDAS (ENLACES AL ABM) -->
@@ -75,6 +94,7 @@ $ultimas_noticias = $mysqli->query("SELECT id, titulo, creado_en FROM noticias O
             <a href="usuarios/index.php" class="btn-crear" style="background:#6a1b9a">Gestionar usuarios</a>
             <a href="cursos/index.php" class="btn-crear" style="background:#9b59b6">Gestionar cursos</a>
             <a href="cursos/crear.php" class="btn-crear" style="background:#8e44ad">+ Crear curso</a>
+            <a href="blog/index.php" class="btn-crear" style="background:#e74c3c">🗑️ Gestionar Blog</a>
             <a href="logout.php" class="btn-crear" style="background:#b71c1c">Cerrar sesión</a>
         </div>
 

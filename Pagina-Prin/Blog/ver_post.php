@@ -88,6 +88,12 @@ $comentarios = $stmt->get_result();
     </header>
 
     <main class="container">
+        <?php if (!empty($_GET['success'])): ?>
+            <div class="alert alert-success"><?php echo htmlspecialchars($_GET['success']); ?></div>
+        <?php endif; ?>
+        <?php if (!empty($_GET['error'])): ?>
+            <div class="alert alert-error"><?php echo htmlspecialchars($_GET['error']); ?></div>
+        <?php endif; ?>
         <article class="post">
             <?php if (!empty($post['imagen_url'])): ?>
                 <img class="post-image" src="<?php echo htmlspecialchars($post['imagen_url']); ?>" alt="<?php echo htmlspecialchars($post['titulo']); ?>">
@@ -108,6 +114,17 @@ $comentarios = $stmt->get_result();
                         ❤ <span class="like-count"><?php echo (int)$post['likes_count']; ?></span>
                     </button>
                     <span class="action">💬 <span><?php echo $comentarios->num_rows; ?></span></span>
+                    <?php 
+                    // Verificar si el usuario es admin
+                    $es_admin = !empty($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
+                    if ($es_admin): ?>
+                        <a href="eliminar_post.php?id=<?php echo (int)$post['id']; ?>" 
+                           class="action action-delete" 
+                           title="Eliminar publicación (Admin)"
+                           onclick="return confirm('¿Estás seguro de que deseas eliminar esta publicación? Esta acción no se puede deshacer.');">
+                            🗑️ Eliminar
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </article>
